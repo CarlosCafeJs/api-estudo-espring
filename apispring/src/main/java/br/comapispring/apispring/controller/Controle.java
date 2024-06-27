@@ -1,9 +1,10 @@
 package br.comapispring.apispring.controller;
 
-import org.springframework.web.bind.annotation.GetMapping; // Adicione esta linha
+import org.springframework.web.bind.annotation.GetMapping; 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.comapispring.apispring.modelo.Pessoa;
 
