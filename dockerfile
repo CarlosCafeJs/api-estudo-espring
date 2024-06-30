@@ -1,6 +1,0 @@
-
-FROM postgres
-
-ENV POSTGRES_PASSWORD=minhasenha
-
-EXPOSE 5432
