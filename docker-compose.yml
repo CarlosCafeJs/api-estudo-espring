@@ -2,16 +2,15 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:latest
-    container_name: springcurse
+    image: mysql:latest
+    container_name: springcurse_mysql
     environment:
-      POSTGRES_DB: springcurse
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      MYSQL_DATABASE: springcurse
+      MYSQL_ROOT_PASSWORD: 1234
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - mysql_data:/var/lib/mysql
 
 volumes:
-  postgres_data:
+  mysql_data:
