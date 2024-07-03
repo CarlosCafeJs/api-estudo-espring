@@ -1,5 +1,7 @@
 package br.comapispring.apispring.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,13 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.comapispring.apispring.modelo.Pessoa;
 import br.comapispring.apispring.repositorio.Repositorio;
+//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
 public class Controle {
-
-  public String postMethodName(@RequestBody String entity) {
-    return entity;
-  }
 
   @Autowired
   private Repositorio acao;
@@ -25,9 +25,24 @@ public class Controle {
     return acao.save(obj);
   }
 
+  @GetMapping("api")
+  public List<Pessoa> selecionar() {
+    return acao.findAll();
+  }
+
+  @PutMapping("/api")
+  public Pessoa editar(@RequestBody Pessoa obj) {
+    return acao.save(obj);
+  }
+
+  @GetMapping("/api/{codigo}")
+  public Pessoa selecionarPeloCodigo(@PathVariable int codigo) {
+    return acao.findByCodigo(codigo);
+  }
+
   @GetMapping("")
   public String mensagem() {
-    return "Hello World!";
+    return "";
   }
 
   @GetMapping("/boasvindas")
